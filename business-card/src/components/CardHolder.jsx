@@ -18,7 +18,16 @@ const CardHolder = () => {
 	}, [])
 	return (
 		<div>
-			<Card />
+			{card.map((cards) => {
+				return (
+					<Card
+						key={cards._id}
+						name={cards.name}
+						desc={cards.description}
+						interests={cards.interests}
+					/>
+				)
+			})}
 		</div>
 	)
 }
