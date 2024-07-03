@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card } from "./Card"
+import "./CardHolder.css"
 
 const CardHolder = () => {
 	const [card, setCard] = useState([])
@@ -8,7 +9,6 @@ const CardHolder = () => {
 			try {
 				const response = await fetch("http://localhost:3000/")
 				const data = await response.json()
-				console.log(data)
 				setCard(data)
 			} catch (error) {
 				console.log(error)
@@ -17,7 +17,7 @@ const CardHolder = () => {
 		getData()
 	}, [])
 	return (
-		<div>
+		<div className="cardHolder">
 			{card.map((cards) => {
 				return (
 					<Card
